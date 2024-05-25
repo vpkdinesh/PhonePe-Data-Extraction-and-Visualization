@@ -18,7 +18,7 @@ import json
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="give your my sql password"
+    password="qwerty"
 )
 cursor = conn.cursor()
 cursor.execute("use phonepe")
@@ -58,10 +58,10 @@ agg_ins_insert_values = [
 
 # pprint.pprint(agg_ins_insert_values)
 print(len(agg_ins_insert_values))
+insert_query = '''INSERT INTO phonepe.aggregate_insurance 
+                    (State, Year, Quarter, Transaction_type, Transaction_count, Transaction_amount) values'''
 
 for insert_rows in agg_ins_insert_values:
-    insert_query = '''INSERT INTO phonepe.aggregate_insurance 
-                        (State, Year, Quarter, Transaction_type, Transaction_count, Transaction_amount) values'''
     insert_agg_ins=insert_query+str(insert_rows)
     # print(insert_agg_ins)
     try:
@@ -100,10 +100,10 @@ agg_tran_insert_values = [
 
 # pprint.pprint(agg_tran_insert_values)
 print(len(agg_tran_insert_values))
+insert_query = '''INSERT INTO phonepe.aggregate_transaction 
+                    (State, Year, Quarter, Transaction_type, Transaction_count, Transaction_amount) values'''
 
 for insert_rows in agg_tran_insert_values:
-    insert_query = '''INSERT INTO phonepe.aggregate_transaction 
-                        (State, Year, Quarter, Transaction_type, Transaction_count, Transaction_amount) values'''
     insert_agg_tran=insert_query+str(insert_rows)
     # print(insert_agg_tran)
     try:
@@ -166,10 +166,10 @@ for state in agg_tran_list:
                 pass
 # pprint.pprint(agg_user_insert_values)
 print(len(agg_user_insert_values))
+insert_query = '''INSERT INTO phonepe.aggregate_user
+                (State, Year, Quarter, Brands, Transaction_count, Percentage) values'''
 
 for insert_rows in agg_user_insert_values:
-    insert_query = '''INSERT INTO phonepe.aggregate_user
-                    (State, Year, Quarter, Brands, Transaction_count, Percentage) values'''
     insert_agg_user=insert_query+str(insert_rows)
     # print(insert_agg_user)
     try:
@@ -208,10 +208,10 @@ map_ins_insert_values = [
 
 # pprint.pprint(map_ins_insert_values)
 print(len(map_ins_insert_values))
+insert_query = '''INSERT INTO phonepe.map_insurance 
+                    (State, Year, Quarter, Districts, Transaction_count, Transaction_amount) values'''
 
 for insert_rows in map_ins_insert_values:
-    insert_query = '''INSERT INTO phonepe.map_insurance 
-                        (State, Year, Quarter, Districts, Transaction_count, Transaction_amount) values'''
     insert_map_ins=insert_query+str(insert_rows)
     # print(insert_map_ins)
     try:
@@ -250,10 +250,10 @@ map_tran_insert_values = [
 
 # pprint.pprint(map_tran_insert_values)
 print(len(map_tran_insert_values))
+insert_query = '''INSERT INTO phonepe.map_transaction 
+                    (State, Year, Quarter, Districts, Transaction_count, Transaction_amount) values'''
 
 for insert_rows in map_tran_insert_values:
-    insert_query = '''INSERT INTO phonepe.map_transaction 
-                        (State, Year, Quarter, Districts, Transaction_count, Transaction_amount) values'''
     insert_map_tran=insert_query+str(insert_rows)
     # print(insert_map_tran)
     try:
@@ -292,9 +292,9 @@ map_user_insert_values = [
 
 # pprint.pprint(map_user_insert_values)
 print(len(map_user_insert_values))
+insert_query = '''INSERT INTO phonepe.map_user (State, Year, Quarter, Districts, Registered_user, App_opens) values'''
 
 for insert_rows in map_user_insert_values:
-    insert_query = '''INSERT INTO phonepe.map_user (State, Year, Quarter, Districts, Registered_user, App_opens) values'''
     insert_map_user=insert_query+str(insert_rows)
     # print(insert_map_user)
     try:
@@ -333,10 +333,10 @@ top_ins_insert_values = [
 
 # pprint.pprint(top_ins_insert_values)
 print(len(top_ins_insert_values))
+insert_query = '''INSERT INTO phonepe.top_insurance 
+                    (State, Year, Quarter, Pincodes, Transaction_count, Transaction_amount) values'''
 
 for insert_rows in top_ins_insert_values:
-    insert_query = '''INSERT INTO phonepe.top_insurance 
-                        (State, Year, Quarter, Pincodes, Transaction_count, Transaction_amount) values'''
     insert_top_ins=insert_query+str(insert_rows)
     # print(insert_top_ins)
     try:
@@ -375,10 +375,10 @@ top_tran_insert_values = [
 
 # pprint.pprint(top_tran_insert_values)
 print(len(top_tran_insert_values))
+insert_query = '''INSERT INTO phonepe.top_transaction 
+                    (State, Year, Quarter, Pincodes, Transaction_count, Transaction_amount) values'''
 
 for insert_rows in top_tran_insert_values:
-    insert_query = '''INSERT INTO phonepe.top_transaction 
-                        (State, Year, Quarter, Pincodes, Transaction_count, Transaction_amount) values'''
     insert_top_ins=insert_query+str(insert_rows)
     # print(insert_top_ins)
     try:
@@ -416,10 +416,10 @@ top_user_insert_values = [
 
 # pprint.pprint(top_user_insert_values)
 print(len(top_user_insert_values))
+insert_query = '''INSERT INTO phonepe.top_user 
+                    (State, Year, Quarter, Pincodes, Registered_user) values'''
 
 for insert_rows in top_user_insert_values:
-    insert_query = '''INSERT INTO phonepe.top_user 
-                        (State, Year, Quarter, Pincodes, Registered_user) values'''
     insert_top_user=insert_query+str(insert_rows)
     # print(insert_top_user)
     try:

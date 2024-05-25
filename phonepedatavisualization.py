@@ -23,7 +23,7 @@ import json
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="give your mysql password"
+    password="qwerty"
 )
 cursor = conn.cursor()
 cursor.execute("use phonepe")
@@ -654,8 +654,10 @@ elif select == "DATA EXPLORATION":
 
             col1,col2= st.columns(2)
             with col1:
-
-                quarters= st.slider("Select The Quarter",aggregate_insurance_tac_year["Quarter"].min(), aggregate_insurance_tac_year["Quarter"].max(),aggregate_insurance_tac_year["Quarter"].min())
+                if aggregate_insurance_tac_year["Quarter"].min() == aggregate_insurance_tac_year["Quarter"].max():
+                    quarters=aggregate_insurance_tac_year["Quarter"].min()
+                else:
+                    quarters= st.slider("Select The Quarter",aggregate_insurance_tac_year["Quarter"].min(), aggregate_insurance_tac_year["Quarter"].max(),aggregate_insurance_tac_year["Quarter"].min())
             transaction_amount_count_year_quarter(aggregate_insurance_tac_year, quarters)
 
         elif method == "Transaction Analysis":
@@ -674,7 +676,10 @@ elif select == "DATA EXPLORATION":
             col1,col2= st.columns(2)
             with col1:
 
-                quarters= st.slider("Select The Quarter",aggregate_transaction_tac_year["Quarter"].min(), aggregate_transaction_tac_year["Quarter"].max(),aggregate_transaction_tac_year["Quarter"].min())
+                if aggregate_transaction_tac_year["Quarter"].min() == aggregate_transaction_tac_year["Quarter"].max():
+                    quarters=aggregate_transaction_tac_year["Quarter"].min()
+                else:
+                    quarters= st.slider("Select The Quarter",aggregate_transaction_tac_year["Quarter"].min(), aggregate_transaction_tac_year["Quarter"].max(),aggregate_transaction_tac_year["Quarter"].min())
             aggregate_transaction_tac_year_quater= transaction_amount_count_year_quarter(aggregate_transaction_tac_year, quarters)
 
             col1,col2= st.columns(2)
@@ -692,8 +697,10 @@ elif select == "DATA EXPLORATION":
 
             col1,col2= st.columns(2)
             with col1:
-
-                quarters= st.slider("Select The Quarter",aggregate_user_year["Quarter"].min(), aggregate_user_year["Quarter"].max(),aggregate_user_year["Quarter"].min())
+                if aggregate_user_year["Quarter"].min() == aggregate_user_year["Quarter"].max():
+                    quarters=aggregate_user_year["Quarter"].min()
+                else:
+                    quarters= st.slider("Select The Quarter",aggregate_user_year["Quarter"].min(), aggregate_user_year["Quarter"].max(),aggregate_user_year["Quarter"].min())
             aggregate_user_year_quarter= aggregate_user_plot_2(aggregate_user_year, quarters)
 
             col1,col2= st.columns(2)
@@ -722,8 +729,10 @@ elif select == "DATA EXPLORATION":
 
             col1,col2= st.columns(2)
             with col1:
-
-                quarters= st.slider("Select The Quarter_mi",map_insurance_tac_year["Quarter"].min(), map_insurance_tac_year["Quarter"].max(),map_insurance_tac_year["Quarter"].min())
+                if map_insurance_tac_year["Quarter"].min() == map_insurance_tac_year["Quarter"].max():
+                    quarters=map_insurance_tac_year["Quarter"].min()
+                else:
+                    quarters= st.slider("Select The Quarter_mi",map_insurance_tac_year["Quarter"].min(), map_insurance_tac_year["Quarter"].max(),map_insurance_tac_year["Quarter"].min())
             map_insurance_tac_year_quarter= transaction_amount_count_year_quarter(map_insurance_tac_year, quarters)
 
             col1,col2= st.columns(2)
@@ -748,8 +757,11 @@ elif select == "DATA EXPLORATION":
 
             col1,col2= st.columns(2)
             with col1:
-
-                quarters= st.slider("Select The Quarter_mt",map_transaction_tac_year["Quarter"].min(), map_transaction_tac_year["Quarter"].max(),map_transaction_tac_year["Quarter"].min())
+            
+                if map_transaction_tac_year["Quarter"].min() == map_transaction_tac_year["Quarter"].max():
+                    quarters=map_transaction_tac_year["Quarter"].min()
+                else:
+                    quarters= st.slider("Select The Quarter_mt",map_transaction_tac_year["Quarter"].min(), map_transaction_tac_year["Quarter"].max(),map_transaction_tac_year["Quarter"].min())
             map_transaction_tac_year_quarter= transaction_amount_count_year_quarter(map_transaction_tac_year, quarters)
 
             col1,col2= st.columns(2)
@@ -769,8 +781,10 @@ elif select == "DATA EXPLORATION":
 
             col1,col2= st.columns(2)
             with col1:
-
-                quarters= st.slider("Select The Quarter_mu",map_user_year["Quarter"].min(), map_user_year["Quarter"].max(),map_user_year["Quarter"].min())
+                if map_user_year["Quarter"].min() == map_user_year["Quarter"].max():
+                    quarters=map_user_year["Quarter"].min()
+                else:
+                    quarters= st.slider("Select The Quarter_mu",map_user_year["Quarter"].min(), map_user_year["Quarter"].max(),map_user_year["Quarter"].min())
             map_user_year_quarter= map_user_plot_2(map_user_year, quarters)
 
             col1,col2= st.columns(2)
@@ -793,14 +807,16 @@ elif select == "DATA EXPLORATION":
 
             col1,col2= st.columns(2)
             with col1:
-
+                    
                 states= st.selectbox("Select The State_ti", top_insurance_tac_year["State"].unique())
             top_insurance_plot_1(top_insurance_tac_year, states)
 
             col1,col2= st.columns(2)
             with col1:
-
-                quarters= st.slider("Select The Quarter_ti",top_insurance_tac_year["Quarter"].min(), top_insurance_tac_year["Quarter"].max(),top_insurance_tac_year["Quarter"].min())
+                if top_insurance_tac_year["Quarter"].min() == top_insurance_tac_year["Quarter"].max():
+                    quarters=top_insurance_tac_year["Quarter"].min()
+                else:
+                    quarters= st.slider("Select The Quarter_ti",top_insurance_tac_year["Quarter"].min(), top_insurance_tac_year["Quarter"].max(),top_insurance_tac_year["Quarter"].min())
             top_insur_tac_year_quarter= transaction_amount_count_year_quarter(top_insurance_tac_year, quarters)
             
         elif method_3 == "Top Transaction":
@@ -820,8 +836,10 @@ elif select == "DATA EXPLORATION":
 
             col1,col2= st.columns(2)
             with col1:
-
-                quarters= st.slider("Select The Quarter_tt",top_transaction_tac_year["Quarter"].min(), top_transaction_tac_year["Quarter"].max(),top_transaction_tac_year["Quarter"].min())
+                if top_transaction_tac_year["Quarter"].min() == top_transaction_tac_year["Quarter"].max():
+                    quarters=top_transaction_tac_year["Quarter"].min()
+                else:
+                    quarters= st.slider("Select The Quarter_tt",top_transaction_tac_year["Quarter"].min(), top_transaction_tac_year["Quarter"].max(),top_transaction_tac_year["Quarter"].min())
             top_transaction_tac_year_quarter= transaction_amount_count_year_quarter(top_transaction_tac_year, quarters)
 
 
@@ -920,4 +938,4 @@ elif select == "TOP CHARTS":
     elif question[0:2] == "10":
           
         st.subheader("REGISTERED USERS")
-        top_chart_registered_users("top_user") 
+        top_chart_registered_users("top_user")

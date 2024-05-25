@@ -416,8 +416,7 @@ top_user_insert_values = [
 
 # pprint.pprint(top_user_insert_values)
 print(len(top_user_insert_values))
-insert_query = '''INSERT INTO phonepe.top_user 
-                    (State, Year, Quarter, Pincodes, Registered_user) values'''
+insert_query = '''INSERT INTO phonepe.top_user (State, Year, Quarter, Pincodes, Registered_user) values'''
 
 for insert_rows in top_user_insert_values:
     insert_top_user=insert_query+str(insert_rows)
